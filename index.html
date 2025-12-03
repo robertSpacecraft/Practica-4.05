@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script defer type="module" src="./main.js"></script>
+    <title>Práctica 4.05 - Generador de formularios</title>
+</head>
+<body>
+    <h1>Generador de Formularios</h1>
+    <form action="" id="formularioCreacion">
+        <label for="selector">Seleccione el tipo de formulario</label>
+        <select name="selectForm" id="selectForm">
+            <option value="seleccionar" selected>Seleccione el tipo de campo</option>
+            <option value="text">Cuadro de texto</option>
+            <option value="pwrd">Contraseña</option>
+            <option value="textarea">Area de texto</option>
+            <option value="label">Etiqueta</option>
+            <option value="img">Imagen</option>
+            <option value="checkbox">Checkbox</option>
+            <option value="radio">Radio</option>
+            <option value="boton">Botón</option>
+        </select>
+        <div id="divTemp">
+            <!--Aquí se generan los campos temporales-->
+        </div>
+    </form>
+    <form action="" id="newForm">
+
+    </form>
+    
+</body>
+</html>
