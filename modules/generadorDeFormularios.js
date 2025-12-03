@@ -46,6 +46,18 @@ export function iniciarGeneradorDeFormularios() {
                 event.preventDefault();
 
                 const idUsuario = inputTextUser.value.trim();
+                //Compruebo que haya introducido un id y un texto
+                if (!idUsuario) {
+                    mostrarError("Debes introducir un id y un texto.");
+                    return;
+                }
+                //Comruebo que el id no esté ya en uso
+                if (idExiste(idUsuario)) {
+                    mostrarError("Ese id ya está en uso. Elige otro distinto.");
+                    return;
+                }
+                //Si todo está correcto, limpio el div y creo el botón.
+                mostrarError("");
 
                 //Creo el bloque que irá en el formulario final
                 const newForm = document.getElementById("newForm");
@@ -86,6 +98,18 @@ export function iniciarGeneradorDeFormularios() {
                 event.preventDefault();
 
                 const idPass = pswrdUser.value.trim();
+                //Compruebo que haya introducido un id y un texto
+                if (!idPass) {
+                    mostrarError("Debes introducir un id y un texto.");
+                    return;
+                }
+                //Comruebo que el id no esté ya en uso
+                if (idExiste(idPass)) {
+                    mostrarError("Ese id ya está en uso. Elige otro distinto.");
+                    return;
+                }
+                //Si todo está correcto, limpio el div y creo el botón.
+                mostrarError("");
 
                 const pswrdForm = document.createElement("input");
                 pswrdForm.type = "password";
@@ -126,6 +150,18 @@ export function iniciarGeneradorDeFormularios() {
                 event.preventDefault();
 
                 const textareaId = textareaUser.value.trim();
+                //Compruebo que haya introducido un id y un texto
+                if (!textareaId) {
+                    mostrarError("Debes introducir un id.");
+                    return;
+                }
+                //Comruebo que el id no esté ya en uso
+                if (idExiste(textareaId)) {
+                    mostrarError("Ese id ya está en uso. Elige otro distinto.");
+                    return;
+                }
+                //Si todo está correcto, limpio el div y creo el botón.
+                mostrarError("");
 
                 const textareaForm = document.createElement("textarea");
                 textareaForm.setAttribute("rows", "5");
@@ -179,6 +215,18 @@ export function iniciarGeneradorDeFormularios() {
 
                 const forLabel = labelUser.value.trim();
                 const textLabel = labelUserText.value.trim();
+                //Compruebo que haya introducido un id y un texto
+                if (!forLabel || !textLabel) {
+                    mostrarError("Debes introducir un for y un texto.");
+                    return;
+                }
+                //Comruebo que el id no esté ya en uso
+                if (idExiste(forLabel)) {
+                    mostrarError("Ese id ya está en uso. Elige otro distinto.");
+                    return;
+                }
+                //Si todo está correcto, limpio el div y creo el botón.
+                mostrarError("");
 
                 const labelForm = document.createElement("label");
                 labelForm.htmlFor = forLabel;
@@ -223,6 +271,18 @@ export function iniciarGeneradorDeFormularios() {
 
                 const src = UrlImgUser.value.trim();
                 const id = idImgUser.value.trim();
+                //Compruebo que haya introducido un id y un texto
+                if (!id || !src) {
+                    mostrarError("Debes introducir un id y una URL.");
+                    return;
+                }
+                //Comruebo que el id no esté ya en uso
+                if (idExiste(id)) {
+                    mostrarError("Ese id ya está en uso. Elige otro distinto.");
+                    return;
+                }
+                //Si todo está correcto, limpio el div y creo el botón.
+                mostrarError("");
 
                 const imgForm = document.createElement("img");
                 imgForm.src = src;
@@ -272,6 +332,18 @@ export function iniciarGeneradorDeFormularios() {
 
                 const id = idCheckboxUser.value.trim();
                 const name = nameCheckboxUser.value.trim();
+                //Compruebo que haya introducido un id y un texto
+                if (!id || !name) {
+                    mostrarError("Debes introducir un id y un nombre.");
+                    return;
+                }
+                //Comruebo que el id no esté ya en uso
+                if (idExiste(id)) {
+                    mostrarError("Ese id ya está en uso. Elige otro distinto.");
+                    return;
+                }
+                //Si todo está correcto, limpio el div y creo el botón.
+                mostrarError("");
 
                 const checkbox = document.createElement("input");
                 checkbox.type = "checkbox";
@@ -323,6 +395,18 @@ export function iniciarGeneradorDeFormularios() {
 
                 const id = idRadioUser.value.trim();
                 const name = nameRadioUser.value.trim();
+                //Compruebo que haya introducido un id y un texto
+                if (!id || !name) {
+                    mostrarError("Debes introducir un id y un nombre.");
+                    return;
+                }
+                //Comruebo que el id no esté ya en uso
+                if (idExiste(id)) {
+                    mostrarError("Ese id ya está en uso. Elige otro distinto.");
+                    return;
+                }
+                //Si todo está correcto, limpio el div y creo el botón.
+                mostrarError("");
 
                 const radio = document.createElement("input");
                 radio.type = "radio";
@@ -373,6 +457,18 @@ export function iniciarGeneradorDeFormularios() {
 
                 const id = idBotonUser.value.trim();
                 const texto = textoBotonUser.value.trim();
+                //Compruebo que haya introducido un id y un texto
+                if (!id || !texto) {
+                    mostrarError("Debes introducir un id y un texto.");
+                    return;
+                }
+                //Comruebo que el id no esté ya en uso
+                if (idExiste(id)) {
+                    mostrarError("Ese id ya está en uso. Elige otro distinto.");
+                    return;
+                }
+                //Si todo está correcto, limpio el div y creo el botón.
+                mostrarError("");
 
                 const botonForm = document.createElement("button");
                 botonForm.id = id;
@@ -385,11 +481,26 @@ export function iniciarGeneradorDeFormularios() {
                 selectForm.value = "seleccionar";
             });
         }
-
-
-
-
-
     });
-
 }
+
+//Función para comprobar si un id ya existe en el formulario
+function idExiste(idBuscado) {
+    const newForm = document.getElementById("newForm");
+
+    const elementosConId = newForm.querySelectorAll("[id]");
+
+    for (const elemento of elementosConId) {
+        if (elemento.id === idBuscado) {
+            return true;
+        }
+    }
+    return false;
+}
+
+//Función para mostrar mensajes de error
+function mostrarError(mensaje) {
+    const divError = document.getElementById("divError");
+    divError.textContent = mensaje;
+}
+

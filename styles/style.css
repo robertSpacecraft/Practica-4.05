@@ -29,17 +29,6 @@ select {
     background-color: white;
 }
 
-button {
-    padding: 12px;
-    font-size: 1rem;
-    border: none;
-    background-color: #0033ff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color .2s;
-}
-
 button:hover {
     background-color: #0063ff;
 }
